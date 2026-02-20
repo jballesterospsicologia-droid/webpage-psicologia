@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psicóloga y Sexóloga | Terapia Integral</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'cloud-dancer': 'rgb(240, 238, 233)',
+                        'lemon-icing': 'rgb(246, 235, 200)',
+                        'nimbus-cloud': 'rgb(213, 213, 216)',
+                        'raindrops': 'rgb(242, 228, 230)',
+                        'ice-melt': 'rgb(195, 213, 228)',
+                        'peach-dust': 'rgb(240, 216, 204)',
+                        'almost-aqua': 'rgb(203, 218, 204)',
+                        'orchid-tint': 'rgb(213, 205, 218)',
+                        'deep-taupe': '#4A403A', // Custom dark text color
+                        'espresso-dark': '#2C2420', // For Mood Mode background
+                        'charcoal-plum': '#2A242B', // Alternative dark background
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Lora', 'serif'],
+                    },
+                    animation: {
+                        'cinematic-flow': 'flow 20s ease-in-out infinite alternate',
+                        'fade-in-up': 'fadeInUp 1s ease-out forwards',
+                    },
+                    keyframes: {
+                        flow: {
+                            '0%': { backgroundPosition: '0% 50%' },
+                            '100%': { backgroundPosition: '100% 50%' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Cinematic Background */
+        body {
+            background-color: rgb(240, 238, 233);
+            color: #4A403A;
+            transition: background-color 0.5s ease, color 0.5s ease;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .cinematic-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 10% 20%, rgba(246, 235, 200, 0.4) 0%, transparent 40%),
+                        radial-gradient(circle at 90% 10%, rgba(213, 205, 218, 0.4) 0%, transparent 40%),
+                        radial-gradient(circle at 30% 80%, rgba(195, 213, 228, 0.4) 0%, transparent 40%),
+                        radial-gradient(circle at 70% 90%, rgba(240, 216, 204, 0.4) 0%, transparent 40%);
+            filter: blur(60px);
+            animation: flow 15s infinite alternate;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        /* Dark Mode Background Adjustments */
+        .dark .cinematic-bg {
+            opacity: 0.2; /* Subtle glow in dark mode */
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Lora', serif;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Mood Mode Toggle */
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #68D391;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #68D391;
+        }
+    </style>
+</head>
+<body class="antialiased font-sans text-deep-taupe dark:bg-charcoal-plum dark:text-cloud-dancer transition-colors duration-500">
+
+    <!-- Cinematic Background Element -->
+    <div class="cinematic-bg"></div>
+
+    <!-- Navigation / Header -->
+    <nav class="fixed w-full z-50 top-0 left-0 bg-cloud-dancer/80 dark:bg-charcoal-plum/80 backdrop-blur-md transition-colors duration-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0">
+                    <span class="font-serif text-2xl tracking-wider font-semibold">Psicóloga & Sexóloga</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#about" class="hover:text-peach-dust dark:hover:text-peach-dust px-3 py-2 rounded-md text-sm font-medium transition-colors">Sobre Mí</a>
+                        <a href="#approach" class="hover:text-peach-dust dark:hover:text-peach-dust px-3 py-2 rounded-md text-sm font-medium transition-colors">Enfoque</a>
+                        <a href="#contact" class="hover:text-peach-dust dark:hover:text-peach-dust px-3 py-2 rounded-md text-sm font-medium transition-colors">Contacto</a>
+                    </div>
+                </div>
+                <!-- Mood Mode Toggle -->
+                <div class="flex items-center ml-4">
+                    <span class="mr-2 text-xs uppercase tracking-widest opacity-70">Mood</span>
+                    <button id="theme-toggle" class="relative inline-flex items-center h-6 rounded-full w-11 transition-colors focus:outline-none bg-nimbus-cloud dark:bg-gray-600">
+                        <span class="sr-only">Toggle Mood Mode</span>
+                        <span id="toggle-circle" class="translate-x-1 inline-block w-4 h-4 transform bg-white rounded-full transition-transform duration-200 ease-in-out"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center text-center px-4 overflow-hidden">
+        <div class="relative z-10 max-w-4xl mx-auto animate-fade-in-up">
+            <h1 class="text-5xl md:text-7xl font-serif mb-6 leading-tight">
+                Psicóloga y Sexóloga.
+            </h1>
+            <p class="text-xl md:text-2xl mb-10 font-light opacity-90 max-w-2xl mx-auto">
+                Un espacio seguro para recuperar tu bienestar emocional y relacional.
+            </p>
+            <a href="#contact" class="inline-block bg-peach-dust text-deep-taupe hover:bg-raindrops px-8 py-4 rounded-full text-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                Reserva tu consulta
+            </a>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="py-24 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <!-- Portrait Placeholder -->
+            <div class="relative group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-peach-dust to-ice-melt rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+                <div class="relative aspect-[3/4] bg-nimbus-cloud/30 rounded-2xl overflow-hidden flex items-center justify-center shadow-inner">
+                    <span class="text-deep-taupe/50 dark:text-cloud-dancer/50 italic font-serif text-lg">[Retrato Profesional]</span>
+                    <!-- Example image placeholder logic -->
+                    <!-- <img src="path/to/image.jpg" alt="Retrato Profesional" class="object-cover w-full h-full"> -->
+                </div>
+            </div>
+
+            <!-- Text Content -->
+            <div class="animate-fade-in-up">
+                <h2 class="text-3xl md:text-4xl font-serif mb-8 border-b-2 border-peach-dust/50 inline-block pb-2">Sobre Mí</h2>
+                <div class="prose prose-lg dark:prose-invert text-deep-taupe dark:text-cloud-dancer leading-relaxed">
+                    <p class="mb-6">
+                        Como Psicóloga General Sanitaria y Sexóloga, entiendo que dar el paso de pedir ayuda en temas íntimos es difícil.
+                    </p>
+                    <p class="mb-6">
+                        Mi consulta es un espacio seguro, confidencial y libre de juicios donde trabajamos para desactivar la culpa y recuperar tu bienestar emocional y relacional.
+                    </p>
+                    <p>
+                        Acompaño a personas y parejas que, pese a tener éxito en otras áreas de su vida, sienten que su vida íntima se ha estancado o convertido en un conflicto.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- My Approach / Services -->
+    <section id="approach" class="py-24 bg-white/30 dark:bg-black/10 backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-serif mb-6">¿En qué puedo ayudarte?</h2>
+                <p class="text-xl max-w-2xl mx-auto font-light">
+                    Mi enfoque integra la terapia de pareja y la sexología para abordar:
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-cloud-dancer dark:bg-espresso-dark/50 p-8 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-nimbus-cloud/20">
+                    <h3 class="text-xl font-serif font-semibold mb-4 text-deep-taupe dark:text-peach-dust">Discrepancia de Deseo</h3>
+                    <p class="text-sm leading-relaxed opacity-90">
+                        Cuando uno quiere "más" y el otro "menos". Salimos del ciclo de presión y rechazo para encontrar un nuevo equilibrio erótico.
+                    </p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-cloud-dancer dark:bg-espresso-dark/50 p-8 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-nimbus-cloud/20">
+                    <h3 class="text-xl font-serif font-semibold mb-4 text-deep-taupe dark:text-peach-dust">Trauma e Infidelidad</h3>
+                    <p class="text-sm leading-relaxed opacity-90">
+                        Protocolos para reconstruir la confianza y sanar la herida tras una traición (física o digital/micro-infidelidades).
+                    </p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-cloud-dancer dark:bg-espresso-dark/50 p-8 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-nimbus-cloud/20">
+                    <h3 class="text-xl font-serif font-semibold mb-4 text-deep-taupe dark:text-peach-dust">Ansiedad de Desempeño</h3>
+                    <p class="text-sm leading-relaxed opacity-90">
+                        Herramientas para desactivar el "miedo a fallar" (eréctil o anorgasmia) y dejar de vivir la intimidad como un examen.
+                    </p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-cloud-dancer dark:bg-espresso-dark/50 p-8 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-nimbus-cloud/20">
+                    <h3 class="text-xl font-serif font-semibold mb-4 text-deep-taupe dark:text-peach-dust">Imagen Corporal y Autoestima</h3>
+                    <p class="text-sm leading-relaxed opacity-90">
+                        Trabajo profundo sobre la dismorfia y la inseguridad física ("Miami effect") que te impiden disfrutar plenamente.
+                    </p>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="bg-cloud-dancer dark:bg-espresso-dark/50 p-8 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-nimbus-cloud/20 md:col-span-2 lg:col-span-1">
+                    <h3 class="text-xl font-serif font-semibold mb-4 text-deep-taupe dark:text-peach-dust">Conflictos Culturales y Religiosos</h3>
+                    <p class="text-sm leading-relaxed opacity-90">
+                        Abordaje sensible a tus valores para gestionar la culpa o vergüenza sexual derivada de una educación restrictiva o religiosa.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Booking Section -->
+    <section id="contact" class="py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <!-- Decoration -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-peach-dust/20 rounded-full blur-3xl -z-10"></div>
+
+        <div class="max-w-3xl mx-auto bg-white/50 dark:bg-espresso-dark/80 backdrop-blur-md rounded-2xl shadow-xl p-8 md:p-12">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl md:text-4xl font-serif mb-4">Reserva tu consulta</h2>
+                <p class="opacity-80">Da el primer paso hacia tu bienestar hoy mismo.</p>
+            </div>
+
+            <form class="space-y-6" onsubmit="event.preventDefault(); alert('Gracias por su interés. Este es un formulario de demostración.');">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium mb-2 opacity-80">Nombre</label>
+                        <input type="text" id="name" class="w-full px-4 py-3 rounded-lg bg-cloud-dancer dark:bg-charcoal-plum border border-nimbus-cloud focus:ring-2 focus:ring-peach-dust focus:border-transparent outline-none transition-all" placeholder="Tu nombre">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium mb-2 opacity-80">Email</label>
+                        <input type="email" id="email" class="w-full px-4 py-3 rounded-lg bg-cloud-dancer dark:bg-charcoal-plum border border-nimbus-cloud focus:ring-2 focus:ring-peach-dust focus:border-transparent outline-none transition-all" placeholder="tu@email.com">
+                    </div>
+                </div>
+                <div>
+                    <label for="message" class="block text-sm font-medium mb-2 opacity-80">Mensaje (Opcional)</label>
+                    <textarea id="message" rows="4" class="w-full px-4 py-3 rounded-lg bg-cloud-dancer dark:bg-charcoal-plum border border-nimbus-cloud focus:ring-2 focus:ring-peach-dust focus:border-transparent outline-none transition-all" placeholder="¿En qué puedo ayudarte?"></textarea>
+                </div>
+                <div class="text-center pt-4">
+                    <button type="submit" class="w-full md:w-auto bg-peach-dust text-deep-taupe hover:bg-raindrops px-10 py-4 rounded-full text-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                        Enviar Solicitud
+                    </button>
+                </div>
+            </form>
+
+            <div class="mt-8 text-center text-sm opacity-60">
+                <p>También puedes agendar directamente en mi calendario (placeholder).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-cloud-dancer dark:bg-charcoal-plum py-12 border-t border-nimbus-cloud/20 transition-colors duration-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-4 md:mb-0">
+                <span class="font-serif text-lg font-semibold">Psicóloga & Sexóloga</span>
+                <p class="text-sm opacity-60 mt-1">&copy; 2023 Todos los derechos reservados.</p>
+            </div>
+            <div class="flex space-x-6">
+                <!-- Social Icons Placeholders -->
+                <a href="#" class="opacity-60 hover:opacity-100 transition-opacity">Instagram</a>
+                <a href="#" class="opacity-60 hover:opacity-100 transition-opacity">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mood Mode -->
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const toggleCircle = document.getElementById('toggle-circle');
+        const htmlElement = document.documentElement;
+
+        // Check for saved user preference
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+            toggleCircle.classList.add('translate-x-6');
+        } else {
+            htmlElement.classList.remove('dark');
+            toggleCircle.classList.remove('translate-x-6');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+                toggleCircle.classList.add('translate-x-6');
+                toggleCircle.classList.remove('translate-x-1');
+            } else {
+                localStorage.theme = 'light';
+                toggleCircle.classList.remove('translate-x-6');
+                toggleCircle.classList.add('translate-x-1');
+            }
+        });
+
+        // Scroll Reveal Animation (Simple intersection observer)
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in-up');
+                    entry.target.style.opacity = 1;
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section > div').forEach((section) => {
+            section.style.opacity = 0; // Hide initially
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
