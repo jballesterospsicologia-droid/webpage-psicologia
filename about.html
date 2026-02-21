@@ -121,7 +121,7 @@
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="about.html" class="hover:text-peach-dust dark:hover:text-peach-dust px-3 py-2 rounded-md text-sm font-medium transition-colors">Sobre Mí</a>
+                        <a href="about.html" class="text-peach-dust dark:text-peach-dust px-3 py-2 rounded-md text-sm font-medium transition-colors">Sobre Mí</a>
                         <a href="enfoque.html" class="hover:text-peach-dust dark:hover:text-peach-dust px-3 py-2 rounded-md text-sm font-medium transition-colors">Enfoque</a>
                         <a href="contact.html" class="hover:text-peach-dust dark:hover:text-peach-dust px-3 py-2 rounded-md text-sm font-medium transition-colors">Contacto</a>
                     </div>
@@ -138,20 +138,37 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="relative h-screen flex items-center justify-center text-center px-4 overflow-hidden">
-        <div class="relative z-10 max-w-4xl mx-auto animate-fade-in-up">
-            <h1 class="text-5xl md:text-7xl font-serif mb-6 leading-tight">
-                Psicóloga y Sexóloga.
-            </h1>
-            <p class="text-xl md:text-2xl mb-10 font-light opacity-90 max-w-2xl mx-auto">
-                Un espacio seguro para recuperar tu bienestar emocional y relacional.
-            </p>
-            <a href="contact.html" class="inline-block bg-peach-dust text-deep-taupe hover:bg-raindrops px-8 py-4 rounded-full text-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                Reserva tu consulta
-            </a>
+    <!-- About Me Section -->
+    <section id="about" class="pt-32 pb-24 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <!-- Portrait Placeholder -->
+            <div class="relative group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-peach-dust to-ice-melt rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+                <div class="relative aspect-[3/4] bg-nimbus-cloud/30 rounded-2xl overflow-hidden flex items-center justify-center shadow-inner">
+                    <span class="text-deep-taupe/50 dark:text-cloud-dancer/50 italic font-serif text-lg">[Retrato Profesional]</span>
+                    <!-- Example image placeholder logic -->
+                    <!-- <img src="path/to/image.jpg" alt="Retrato Profesional" class="object-cover w-full h-full"> -->
+                </div>
+            </div>
+
+            <!-- Text Content -->
+            <div class="animate-fade-in-up">
+                <h2 class="text-3xl md:text-4xl font-serif mb-8 border-b-2 border-peach-dust/50 inline-block pb-2">Sobre Mí</h2>
+                <div class="prose prose-lg dark:prose-invert text-deep-taupe dark:text-cloud-dancer leading-relaxed">
+                    <p class="mb-6">
+                        Como Psicóloga General Sanitaria y Sexóloga, entiendo que dar el paso de pedir ayuda en temas íntimos es difícil.
+                    </p>
+                    <p class="mb-6">
+                        Mi consulta es un espacio seguro, confidencial y libre de juicios donde trabajamos para desactivar la culpa y recuperar tu bienestar emocional y relacional.
+                    </p>
+                    <p>
+                        Acompaño a personas y parejas que, pese a tener éxito en otras áreas de su vida, sienten que su vida íntima se ha estancado o convertido en un conflicto.
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
+
 
     <!-- Footer -->
     <footer class="bg-cloud-dancer dark:bg-charcoal-plum py-12 border-t border-nimbus-cloud/20 transition-colors duration-500">

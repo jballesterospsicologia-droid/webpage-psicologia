@@ -123,7 +123,7 @@
                     <div class="ml-10 flex items-baseline space-x-8">
                         <a href="about.html" class="hover:text-peach-dust dark:hover:text-peach-dust px-3 py-2 rounded-md text-sm font-medium transition-colors">Sobre Mí</a>
                         <a href="enfoque.html" class="hover:text-peach-dust dark:hover:text-peach-dust px-3 py-2 rounded-md text-sm font-medium transition-colors">Enfoque</a>
-                        <a href="contact.html" class="hover:text-peach-dust dark:hover:text-peach-dust px-3 py-2 rounded-md text-sm font-medium transition-colors">Contacto</a>
+                        <a href="contact.html" class="text-peach-dust dark:text-peach-dust px-3 py-2 rounded-md text-sm font-medium transition-colors">Contacto</a>
                     </div>
                 </div>
                 <!-- Mood Mode Toggle -->
@@ -138,18 +138,42 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="relative h-screen flex items-center justify-center text-center px-4 overflow-hidden">
-        <div class="relative z-10 max-w-4xl mx-auto animate-fade-in-up">
-            <h1 class="text-5xl md:text-7xl font-serif mb-6 leading-tight">
-                Psicóloga y Sexóloga.
-            </h1>
-            <p class="text-xl md:text-2xl mb-10 font-light opacity-90 max-w-2xl mx-auto">
-                Un espacio seguro para recuperar tu bienestar emocional y relacional.
-            </p>
-            <a href="contact.html" class="inline-block bg-peach-dust text-deep-taupe hover:bg-raindrops px-8 py-4 rounded-full text-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                Reserva tu consulta
-            </a>
+    <!-- Contact / Booking Section -->
+    <section id="contact" class="pt-32 pb-24 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center relative overflow-hidden">
+        <!-- Decoration -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-peach-dust/20 rounded-full blur-3xl -z-10"></div>
+
+        <div class="max-w-3xl mx-auto bg-white/50 dark:bg-espresso-dark/80 backdrop-blur-md rounded-2xl shadow-xl p-8 md:p-12">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl md:text-4xl font-serif mb-4">Reserva tu consulta</h2>
+                <p class="opacity-80">Da el primer paso hacia tu bienestar hoy mismo.</p>
+            </div>
+
+            <form class="space-y-6" onsubmit="event.preventDefault(); alert('Gracias por su interés. Este es un formulario de demostración.');">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium mb-2 opacity-80">Nombre</label>
+                        <input type="text" id="name" class="w-full px-4 py-3 rounded-lg bg-cloud-dancer dark:bg-charcoal-plum border border-nimbus-cloud focus:ring-2 focus:ring-peach-dust focus:border-transparent outline-none transition-all" placeholder="Tu nombre">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium mb-2 opacity-80">Email</label>
+                        <input type="email" id="email" class="w-full px-4 py-3 rounded-lg bg-cloud-dancer dark:bg-charcoal-plum border border-nimbus-cloud focus:ring-2 focus:ring-peach-dust focus:border-transparent outline-none transition-all" placeholder="tu@email.com">
+                    </div>
+                </div>
+                <div>
+                    <label for="message" class="block text-sm font-medium mb-2 opacity-80">Mensaje (Opcional)</label>
+                    <textarea id="message" rows="4" class="w-full px-4 py-3 rounded-lg bg-cloud-dancer dark:bg-charcoal-plum border border-nimbus-cloud focus:ring-2 focus:ring-peach-dust focus:border-transparent outline-none transition-all" placeholder="¿En qué puedo ayudarte?"></textarea>
+                </div>
+                <div class="text-center pt-4">
+                    <button type="submit" class="w-full md:w-auto bg-peach-dust text-deep-taupe hover:bg-raindrops px-10 py-4 rounded-full text-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                        Enviar Solicitud
+                    </button>
+                </div>
+            </form>
+
+            <div class="mt-8 text-center text-sm opacity-60">
+                <p>También puedes agendar directamente en mi calendario (placeholder).</p>
+            </div>
         </div>
     </section>
 
