@@ -117,7 +117,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <div class="flex-shrink-0">
-                    <a href="index.html" class="font-serif text-2xl tracking-wider font-semibold hover:text-peach-dust transition-colors">Psicóloga & Sexóloga</a>
+                    <a href="index.html" class="font-serif text-xl md:text-2xl tracking-wider font-semibold hover:text-peach-dust transition-colors">Psicóloga & Sexóloga</a>
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
@@ -128,12 +128,31 @@
                 </div>
                 <!-- Mood Mode Toggle -->
                 <div class="flex items-center ml-4">
-                    <span class="mr-2 text-xs uppercase tracking-widest opacity-70">Mood</span>
+                    <span class="mr-2 text-xs uppercase tracking-widest opacity-70 hidden sm:inline-block">Mood</span>
                     <button id="theme-toggle" class="relative inline-flex items-center h-6 rounded-full w-11 transition-colors focus:outline-none bg-nimbus-cloud dark:bg-gray-600">
                         <span class="sr-only">Toggle Mood Mode</span>
                         <span id="toggle-circle" class="translate-x-1 inline-block w-4 h-4 transform bg-white rounded-full transition-transform duration-200 ease-in-out"></span>
                     </button>
+
+                    <!-- Mobile Menu Button -->
+                    <div class="ml-2 md:hidden flex items-center">
+                        <button id="mobile-menu-button" type="button" class="text-deep-taupe dark:text-cloud-dancer hover:text-peach-dust focus:outline-none p-2 rounded-md">
+                            <span class="sr-only">Open main menu</span>
+                            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </button>
+                    </div>
                 </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu, show/hide based on menu state. -->
+        <div class="md:hidden hidden bg-cloud-dancer/95 dark:bg-charcoal-plum/95 backdrop-blur-md absolute top-20 left-0 w-full shadow-lg border-t border-nimbus-cloud/20" id="mobile-menu">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="about.html" class="block px-3 py-3 rounded-md text-base font-medium hover:text-peach-dust hover:bg-white/50 dark:hover:bg-black/20 transition-all">Sobre Mí</a>
+                <a href="enfoque.html" class="block px-3 py-3 rounded-md text-base font-medium text-peach-dust bg-white/50 dark:bg-black/20 transition-all">Enfoque</a>
+                <a href="contact.html" class="block px-3 py-3 rounded-md text-base font-medium hover:text-peach-dust hover:bg-white/50 dark:hover:bg-black/20 transition-all">Contacto</a>
             </div>
         </div>
     </nav>
@@ -217,6 +236,16 @@
             section.style.opacity = 0; // Hide initially
             observer.observe(section);
         });
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-button');
+        const menu = document.getElementById('mobile-menu');
+
+        if (btn && menu) {
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+        }
     </script>
 </body>
 </html>
