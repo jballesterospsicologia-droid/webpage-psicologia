@@ -50,6 +50,14 @@ window.translations = {
 
         // Service Pages
         "individual.title": "Terapia Individual",
+        "individual.intro": "La sesión individual brinda un espacio seguro para explorar tus emociones a través de un enfoque centrado en objetivos, diseñado para facilitarte herramientas prácticas y promover tu bienestar emocional.",
+        "individual.target_title": "¿A quién va dirigido?",
+        "individual.target.1": "Si sientes que la ansiedad o el estrés constante están afectando tu calidad de vida.",
+        "individual.target.2": "Si atraviesas un bajo estado de ánimo, falta de motivación o sentimientos de tristeza profunda.",
+        "individual.target.3": "Si te encuentras transitando un proceso de duelo ante una pérdida significativa.",
+        "individual.target.4": "Si buscas mejorar tu autoestima y sanar la relación con tu imagen corporal.",
+        "individual.target.5": "Si experimentas conflictos interpersonales y deseas mejorar la forma en que te vinculas con los demás.",
+        "individual.target.6": "Si simplemente no te sientes conforme con tu presente y buscas un cambio positivo.",
         "couple.title": "Terapia de Pareja",
         "sexology.title": "Sexología",
         "construction.msg": "Esta sección está en construcción. Próximamente encontrarás más información sobre este servicio.",
@@ -106,6 +114,14 @@ window.translations = {
 
         // Service Pages
         "individual.title": "Teràpia Individual",
+        "individual.intro": "La sessió individual ofereix un espai segur per explorar les teves emocions a través d'un enfocament centrat en objectius, dissenyat per facilitar-te eines pràctiques i promoure el teu benestar emocional.",
+        "individual.target_title": "A qui va dirigit?",
+        "individual.target.1": "Si sents que l'ansietat o l'estrès constant estan afectant la teva qualitat de vida.",
+        "individual.target.2": "Si travesses un baix estat d'ànim, manca de motivació o sentiments de tristesa profunda.",
+        "individual.target.3": "Si et trobes transitant un procés de dol davant d'una pèrdua significativa.",
+        "individual.target.4": "Si busques millorar la teva autoestima i sanar la relació amb la teva imatge corporal.",
+        "individual.target.5": "Si experimentes conflictes interpersonals i desitges millorar la forma en què et vincules amb els altres.",
+        "individual.target.6": "Si simplement no et sents conforme amb el teu present i busques un canvi positiu.",
         "couple.title": "Teràpia de Parella",
         "sexology.title": "Sexologia",
         "construction.msg": "Aquesta secció està en construcció. Properament trobaràs més informació sobre aquest servei.",
