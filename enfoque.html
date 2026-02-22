@@ -121,19 +121,38 @@
                     <a href="index.html" class="flex items-center gap-3 font-serif text-sm md:text-xl tracking-wider font-semibold hover:text-peach-dust transition-colors">
                         <img src="logo.svg" alt="Logo" class="h-10 w-auto">
                         <span class="md:hidden">Johanna Ballesteros</span>
-                        <span class="hidden md:inline">Johanna Ballesteros | Psicóloga & Sexóloga</span>
+                        <span data-i18n="brand.desktop" class="hidden md:inline">Johanna Ballesteros | Psicóloga & Sexóloga</span>
                     </a>
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="about.html" class="hover:text-peach-dust dark:hover:text-peach-dust px-3 py-2 rounded-md text-sm font-medium transition-colors">Sobre Mí</a>
-                        <a href="enfoque.html" class="text-peach-dust dark:text-peach-dust px-3 py-2 rounded-md text-sm font-medium transition-colors">Enfoque</a>
-                        <a href="contact.html" class="hover:text-peach-dust dark:hover:text-peach-dust px-3 py-2 rounded-md text-sm font-medium transition-colors">Contacto</a>
+                        <a href="about.html" data-i18n="nav.about" class="hover:text-peach-dust dark:hover:text-peach-dust px-3 py-2 rounded-md text-sm font-medium transition-colors">Sobre Mí</a>
+                        <a href="enfoque.html" data-i18n="nav.approach" class="text-peach-dust dark:text-peach-dust px-3 py-2 rounded-md text-sm font-medium transition-colors">Enfoque</a>
+                        <a href="contact.html" data-i18n="nav.contact" class="hover:text-peach-dust dark:hover:text-peach-dust px-3 py-2 rounded-md text-sm font-medium transition-colors">Contacto</a>
                     </div>
                 </div>
-                <!-- Mood Mode Toggle -->
+                <!-- Mood Mode Toggle & Language Selector -->
                 <div class="flex items-center ml-4">
-                    <span class="mr-2 text-xs uppercase tracking-widest opacity-70 hidden sm:inline-block">Mood</span>
+                    <!-- Language Selector -->
+                    <div class="flex items-center space-x-2 mr-4 border-r border-nimbus-cloud/50 pr-4">
+                        <button id="lang-btn-es" class="w-6 h-6 rounded-full overflow-hidden transition-all duration-300 opacity-100 hover:scale-110 focus:outline-none shadow-sm" title="Español">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 500" class="w-full h-full object-cover">
+                                <rect width="750" height="500" fill="#c60b1e"/>
+                                <rect width="750" height="250" y="125" fill="#ffc400"/>
+                            </svg>
+                        </button>
+                        <button id="lang-btn-ca" class="w-6 h-6 rounded-full overflow-hidden transition-all duration-300 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 hover:scale-110 focus:outline-none shadow-sm" title="Català">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" class="w-full h-full object-cover">
+                                <rect width="900" height="600" fill="#fce100"/>
+                                <rect y="120" width="900" height="60" fill="#d81e05"/>
+                                <rect y="240" width="900" height="60" fill="#d81e05"/>
+                                <rect y="360" width="900" height="60" fill="#d81e05"/>
+                                <rect y="480" width="900" height="60" fill="#d81e05"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <span data-i18n="nav.mood" class="mr-2 text-xs uppercase tracking-widest opacity-70 hidden sm:inline-block">Mood</span>
                     <button id="theme-toggle" class="relative inline-flex items-center h-6 rounded-full w-11 transition-colors focus:outline-none bg-nimbus-cloud dark:bg-gray-600">
                         <span class="sr-only">Toggle Mood Mode</span>
                         <span id="toggle-circle" class="translate-x-1 inline-block w-4 h-4 transform bg-white rounded-full transition-transform duration-200 ease-in-out"></span>
@@ -155,9 +174,9 @@
         <!-- Mobile Menu, show/hide based on menu state. -->
         <div class="md:hidden hidden bg-cloud-dancer/95 dark:bg-charcoal-plum/95 backdrop-blur-md absolute top-20 left-0 w-full shadow-lg border-t border-nimbus-cloud/20" id="mobile-menu">
             <div class="px-4 pt-2 pb-6 space-y-2">
-                <a href="about.html" class="block px-3 py-3 rounded-md text-base font-medium hover:text-peach-dust hover:bg-white/50 dark:hover:bg-black/20 transition-all">Sobre Mí</a>
-                <a href="enfoque.html" class="block px-3 py-3 rounded-md text-base font-medium text-peach-dust bg-white/50 dark:bg-black/20 transition-all">Enfoque</a>
-                <a href="contact.html" class="block px-3 py-3 rounded-md text-base font-medium hover:text-peach-dust hover:bg-white/50 dark:hover:bg-black/20 transition-all">Contacto</a>
+                <a href="about.html" data-i18n="nav.about" class="block px-3 py-3 rounded-md text-base font-medium hover:text-peach-dust hover:bg-white/50 dark:hover:bg-black/20 transition-all">Sobre Mí</a>
+                <a href="enfoque.html" data-i18n="nav.approach" class="block px-3 py-3 rounded-md text-base font-medium text-peach-dust bg-white/50 dark:bg-black/20 transition-all">Enfoque</a>
+                <a href="contact.html" data-i18n="nav.contact" class="block px-3 py-3 rounded-md text-base font-medium hover:text-peach-dust hover:bg-white/50 dark:hover:bg-black/20 transition-all">Contacto</a>
             </div>
         </div>
     </nav>
@@ -166,8 +185,8 @@
     <section id="approach" class="pt-32 pb-24 bg-white/30 dark:bg-black/10 backdrop-blur-sm min-h-screen flex items-center">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-serif mb-6">¿En qué puedo ayudarte?</h2>
-                <p class="text-xl max-w-2xl mx-auto font-light">
+                <h2 data-i18n="approach.title" class="text-3xl md:text-4xl font-serif mb-6">¿En qué puedo ayudarte?</h2>
+                <p data-i18n="approach.subtitle" class="text-xl max-w-2xl mx-auto font-light">
                     Mi enfoque integra la terapia de pareja y la sexología para abordar:
                 </p>
             </div>
@@ -175,24 +194,24 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Terapia Individual -->
                 <a href="terapia-individual.html" class="block bg-cloud-dancer dark:bg-espresso-dark/50 p-8 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-nimbus-cloud/20 hover:-translate-y-1 cursor-pointer">
-                    <h3 class="text-xl font-serif font-semibold mb-4 text-deep-taupe dark:text-peach-dust">Terapia individual</h3>
-                    <p class="text-sm leading-relaxed opacity-90">
+                    <h3 data-i18n="service.individual.title" class="text-xl font-serif font-semibold mb-4 text-deep-taupe dark:text-peach-dust">Terapia individual</h3>
+                    <p data-i18n="service.individual.desc" class="text-sm leading-relaxed opacity-90">
                         Más información...
                     </p>
                 </a>
 
                 <!-- Terapia de Pareja -->
                 <a href="terapia-de-pareja.html" class="block bg-cloud-dancer dark:bg-espresso-dark/50 p-8 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-nimbus-cloud/20 hover:-translate-y-1 cursor-pointer">
-                    <h3 class="text-xl font-serif font-semibold mb-4 text-deep-taupe dark:text-peach-dust">Terapia de pareja</h3>
-                    <p class="text-sm leading-relaxed opacity-90">
+                    <h3 data-i18n="service.couple.title" class="text-xl font-serif font-semibold mb-4 text-deep-taupe dark:text-peach-dust">Terapia de pareja</h3>
+                    <p data-i18n="service.couple.desc" class="text-sm leading-relaxed opacity-90">
                         Más información...
                     </p>
                 </a>
 
                 <!-- Sexología -->
                 <a href="sexologia.html" class="block bg-cloud-dancer dark:bg-espresso-dark/50 p-8 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-nimbus-cloud/20 hover:-translate-y-1 cursor-pointer">
-                    <h3 class="text-xl font-serif font-semibold mb-4 text-deep-taupe dark:text-peach-dust">Sexología</h3>
-                    <p class="text-sm leading-relaxed opacity-90">
+                    <h3 data-i18n="service.sexology.title" class="text-xl font-serif font-semibold mb-4 text-deep-taupe dark:text-peach-dust">Sexología</h3>
+                    <p data-i18n="service.sexology.desc" class="text-sm leading-relaxed opacity-90">
                         Más información...
                     </p>
                 </a>
@@ -204,8 +223,8 @@
     <footer class="bg-cloud-dancer dark:bg-charcoal-plum py-12 border-t border-nimbus-cloud/20 transition-colors duration-500">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
             <div class="mb-4 md:mb-0">
-                <span class="font-serif text-lg font-semibold">Psicóloga & Sexóloga</span>
-                <p class="text-sm opacity-60 mt-1">&copy; 2023 Todos los derechos reservados.</p>
+                <span data-i18n="footer.text" class="font-serif text-lg font-semibold">Psicóloga & Sexóloga</span>
+                <p data-i18n="footer.rights" class="text-sm opacity-60 mt-1">&copy; 2023 Todos los derechos reservados.</p>
             </div>
             <div class="flex space-x-6">
                 <!-- Social Icons Placeholders -->
@@ -279,10 +298,13 @@
     <!-- WhatsApp Floating Button -->
     <a href="https://wa.me/34603289580?text=Hola%2C%20me%20gustar%C3%ADa%20contactar%20contigo%20para%20una%20consulta.%20%C2%BFC%C3%B3mo%20podemos%20empezar%3F" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#20bd5a] text-white p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 flex items-center justify-center group" aria-label="Chat en WhatsApp">
         <svg class="w-8 h-8 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.9 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
-        <span class="absolute right-full mr-3 bg-white text-gray-800 px-3 py-1 rounded-lg text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-sm whitespace-nowrap pointer-events-none hidden md:block">
+        <span data-i18n="whatsapp.label" class="absolute right-full mr-3 bg-white text-gray-800 px-3 py-1 rounded-lg text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-sm whitespace-nowrap pointer-events-none hidden md:block">
             Contáctame por WhatsApp
         </span>
     </a>
 
+    <!-- Language Scripts -->
+    <script src="js/translations.js"></script>
+    <script src="js/language-toggle.js"></script>
 </body>
 </html>
