@@ -277,22 +277,6 @@
             });
         }
 
-        // Contact Form Handler
-        const contactForm = document.getElementById('contact-form');
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-
-                const name = document.getElementById('name').value;
-                const email = document.getElementById('email').value;
-                const message = document.getElementById('message').value;
-
-                const subject = `Consulta de ${name}`;
-                const body = `Nombre: ${name}\nEmail: ${email}\n\nMotivo de la consulta:\n${message}`;
-
-                window.location.href = `mailto:jballesterospsicologia@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            });
-        }
     </script>
 
     <!-- Contact Form Handling -->
@@ -325,7 +309,7 @@
                 .then(response => {
                     if (response.ok) {
                         // Success
-                        formStatus.textContent = "Mensaje enviado con éxito.";
+                        formStatus.textContent = "Gracias por tu confianza, Te responderé lo antes posible.";
                         formStatus.classList.add('text-green-600', 'dark:text-green-400');
                         contactForm.reset();
                     } else {
