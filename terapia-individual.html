@@ -152,11 +152,13 @@
                         </button>
                     </div>
 
-                    <span data-i18n="nav.mood" class="mr-2 text-xs uppercase tracking-widest opacity-70 hidden sm:inline-block">Mood</span>
-                    <button id="theme-toggle" class="relative inline-flex items-center h-6 rounded-full w-11 transition-colors focus:outline-none bg-nimbus-cloud dark:bg-gray-600">
-                        <span class="sr-only">Toggle Mood Mode</span>
-                        <span id="toggle-circle" class="translate-x-1 inline-block w-4 h-4 transform bg-white rounded-full transition-transform duration-200 ease-in-out"></span>
-                    </button>
+                    <div class="hidden md:flex items-center">
+                        <span data-i18n="nav.mood" class="mr-2 text-xs uppercase tracking-widest opacity-70 hidden sm:inline-block">Mood</span>
+                        <button id="theme-toggle" class="relative inline-flex items-center h-6 rounded-full w-11 transition-colors focus:outline-none bg-nimbus-cloud dark:bg-gray-600">
+                            <span class="sr-only">Toggle Mood Mode</span>
+                            <span id="toggle-circle" class="translate-x-1 inline-block w-4 h-4 transform bg-white rounded-full transition-transform duration-200 ease-in-out"></span>
+                        </button>
+                    </div>
 
                     <!-- Mobile Menu Button -->
                     <div class="ml-2 md:hidden flex items-center">
@@ -177,6 +179,14 @@
                 <a href="about.html" data-i18n="nav.about" class="block px-3 py-3 rounded-md text-base font-medium hover:text-peach-dust hover:bg-white/50 dark:hover:bg-black/20 transition-all">Sobre Mí</a>
                 <a href="enfoque.html" data-i18n="nav.approach" class="block px-3 py-3 rounded-md text-base font-medium text-peach-dust bg-white/50 dark:bg-black/20 transition-all">Enfoque</a>
                 <a href="contact.html" data-i18n="nav.contact" class="block px-3 py-3 rounded-md text-base font-medium hover:text-peach-dust hover:bg-white/50 dark:hover:bg-black/20 transition-all">Contacto</a>
+                <!-- Mobile Mood Toggle -->
+                <div class="mt-2 pt-3 border-t border-nimbus-cloud/20 flex items-center justify-between px-3">
+                    <span data-i18n="nav.mood" class="text-base font-medium text-deep-taupe dark:text-cloud-dancer">Mood</span>
+                    <button id="mobile-theme-toggle" class="relative inline-flex items-center h-6 rounded-full w-11 transition-colors focus:outline-none bg-nimbus-cloud dark:bg-gray-600">
+                        <span class="sr-only">Toggle Mood Mode</span>
+                        <span id="mobile-toggle-circle" class="translate-x-1 inline-block w-4 h-4 transform bg-white rounded-full transition-transform duration-200 ease-in-out"></span>
+                    </button>
+                </div>
             </div>
         </div>
     </nav>
@@ -214,30 +224,49 @@
     <script>
         const themeToggleBtn = document.getElementById('theme-toggle');
         const toggleCircle = document.getElementById('toggle-circle');
+        const mobileThemeToggleBtn = document.getElementById('mobile-theme-toggle');
+        const mobileToggleCircle = document.getElementById('mobile-toggle-circle');
         const htmlElement = document.documentElement;
+
+        function updateThemeUI(isDark) {
+            if (isDark) {
+                htmlElement.classList.add('dark');
+                if (toggleCircle) {
+                    toggleCircle.classList.add('translate-x-6');
+                    toggleCircle.classList.remove('translate-x-1');
+                }
+                if (mobileToggleCircle) {
+                    mobileToggleCircle.classList.add('translate-x-6');
+                    mobileToggleCircle.classList.remove('translate-x-1');
+                }
+            } else {
+                htmlElement.classList.remove('dark');
+                if (toggleCircle) {
+                    toggleCircle.classList.remove('translate-x-6');
+                    toggleCircle.classList.add('translate-x-1');
+                }
+                if (mobileToggleCircle) {
+                    mobileToggleCircle.classList.remove('translate-x-6');
+                    mobileToggleCircle.classList.add('translate-x-1');
+                }
+            }
+        }
 
         // Check for saved user preference
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            htmlElement.classList.add('dark');
-            toggleCircle.classList.add('translate-x-6');
+            updateThemeUI(true);
         } else {
-            htmlElement.classList.remove('dark');
-            toggleCircle.classList.remove('translate-x-6');
+            updateThemeUI(false);
         }
 
-        themeToggleBtn.addEventListener('click', () => {
-            htmlElement.classList.toggle('dark');
+        function toggleTheme() {
+            const isDark = !htmlElement.classList.contains('dark');
+            localStorage.theme = isDark ? 'dark' : 'light';
+            updateThemeUI(isDark);
+        }
 
-            if (htmlElement.classList.contains('dark')) {
-                localStorage.theme = 'dark';
-                toggleCircle.classList.add('translate-x-6');
-                toggleCircle.classList.remove('translate-x-1');
-            } else {
-                localStorage.theme = 'light';
-                toggleCircle.classList.remove('translate-x-6');
-                toggleCircle.classList.add('translate-x-1');
-            }
-        });
+        if (themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
+        if (mobileThemeToggleBtn) mobileThemeToggleBtn.addEventListener('click', toggleTheme);
 
         // Scroll Reveal Animation (Simple intersection observer)
         const observerOptions = {
