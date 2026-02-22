@@ -173,20 +173,20 @@
                 <p class="opacity-80">Da el primer paso hacia tu bienestar hoy mismo.</p>
             </div>
 
-            <form class="space-y-6" action="mailto:jballesterospsicologia@gmail.com" method="post" enctype="text/plain">
+            <form id="contact-form" class="space-y-6">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                         <label for="name" class="block text-sm font-medium mb-2 opacity-80">Nombre</label>
-                        <input type="text" id="name" name="name" class="w-full px-4 py-3 rounded-lg bg-cloud-dancer dark:bg-charcoal-plum border border-nimbus-cloud focus:ring-2 focus:ring-peach-dust focus:border-transparent outline-none transition-all" placeholder="Tu nombre">
+                        <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-lg bg-cloud-dancer dark:bg-charcoal-plum border border-nimbus-cloud focus:ring-2 focus:ring-peach-dust focus:border-transparent outline-none transition-all" placeholder="Tu nombre">
                     </div>
                     <div>
                         <label for="email" class="block text-sm font-medium mb-2 opacity-80">Email</label>
-                        <input type="email" id="email" name="email" class="w-full px-4 py-3 rounded-lg bg-cloud-dancer dark:bg-charcoal-plum border border-nimbus-cloud focus:ring-2 focus:ring-peach-dust focus:border-transparent outline-none transition-all" placeholder="tu@email.com">
+                        <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-lg bg-cloud-dancer dark:bg-charcoal-plum border border-nimbus-cloud focus:ring-2 focus:ring-peach-dust focus:border-transparent outline-none transition-all" placeholder="tu@email.com">
                     </div>
                 </div>
                 <div>
-                    <label for="message" class="block text-sm font-medium mb-2 opacity-80">Mensaje (Opcional)</label>
-                    <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 rounded-lg bg-cloud-dancer dark:bg-charcoal-plum border border-nimbus-cloud focus:ring-2 focus:ring-peach-dust focus:border-transparent outline-none transition-all" placeholder="¿En qué puedo ayudarte?"></textarea>
+                    <label for="message" class="block text-sm font-medium mb-2 opacity-80">Motivo de la consulta</label>
+                    <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 rounded-lg bg-cloud-dancer dark:bg-charcoal-plum border border-nimbus-cloud focus:ring-2 focus:ring-peach-dust focus:border-transparent outline-none transition-all" placeholder="¿En qué puedo ayudarte?"></textarea>
                 </div>
                 <div class="text-center pt-4">
                     <button type="submit" class="w-full md:w-auto bg-peach-dust text-deep-taupe hover:bg-raindrops px-10 py-4 rounded-full text-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
@@ -274,6 +274,23 @@
         if (btn && menu) {
             btn.addEventListener('click', () => {
                 menu.classList.toggle('hidden');
+            });
+        }
+
+        // Contact Form Handler
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+
+                const subject = `Consulta de ${name}`;
+                const body = `Nombre: ${name}\nEmail: ${email}\n\nMotivo de la consulta:\n${message}`;
+
+                window.location.href = `mailto:jballesterospsicologia@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
             });
         }
     </script>
