@@ -8,7 +8,7 @@ window.translations = {
         "nav.contact": "Contacto",
         "nav.mood": "Mood",
         "footer.text": "Psicóloga & Sexóloga",
-        "footer.rights": "© 2023 Todos los derechos reservados.",
+        "footer.rights": "© 2025 Todos los derechos reservados.",
         "whatsapp.label": "Contáctame por WhatsApp",
 
         // Index
@@ -64,7 +64,7 @@ window.translations = {
         "nav.contact": "Contacte",
         "nav.mood": "Mood",
         "footer.text": "Psicòloga i Sexòloga",
-        "footer.rights": "© 2023 Tots els drets reservats.",
+        "footer.rights": "© 2025 Tots els drets reservats.",
         "whatsapp.label": "Contacta'm per WhatsApp",
 
         // Index

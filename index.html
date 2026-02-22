@@ -193,31 +193,74 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative h-screen flex items-center justify-center text-center px-4 overflow-hidden">
-        <div class="relative z-10 max-w-4xl mx-auto animate-fade-in-up">
-            <h1 data-i18n="hero.title" class="text-5xl md:text-7xl font-serif mb-6 leading-tight">
-                Psicóloga y Sexóloga.
-            </h1>
-            <p data-i18n="hero.subtitle" class="text-xl md:text-2xl mb-10 font-light opacity-90 max-w-2xl mx-auto">
-                Un espacio seguro para recuperar tu bienestar emocional y relacional.
-            </p>
-            <a href="contact.html" data-i18n="hero.cta" class="inline-block bg-peach-dust text-deep-taupe hover:bg-raindrops px-8 py-4 rounded-full text-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                Reserva tu consulta
-            </a>
+    <section class="flex flex-col md:flex-row h-screen w-full">
+        <!-- Left Side: Image -->
+        <div class="w-full md:w-1/2 h-1/2 md:h-full relative">
+            <img src="about.png" alt="Johanna Ballesteros" class="w-full h-full object-cover">
         </div>
+        <!-- Right Side: Content -->
+        <div class="w-full md:w-1/2 h-1/2 md:h-full flex items-center justify-center text-center px-4">
+             <div class="relative z-10 max-w-xl mx-auto animate-fade-in-up">
+                <h1 data-i18n="hero.title" class="text-4xl md:text-6xl font-serif mb-6 leading-tight">
+                    Psicóloga y Sexóloga.
+                </h1>
+                <p data-i18n="hero.subtitle" class="text-lg md:text-xl mb-10 font-light opacity-90 max-w-lg mx-auto">
+                    Un espacio seguro para recuperar tu bienestar emocional y relacional.
+                </p>
+                <a href="contact.html" data-i18n="hero.cta" class="inline-block bg-peach-dust text-deep-taupe hover:bg-raindrops px-8 py-4 rounded-full text-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                    Reserva tu consulta
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Un Espacio Honesto Section -->
+    <section class="bg-raindrops py-20 px-4 text-center">
+        <div class="max-w-4xl mx-auto">
+            <p class="text-xl md:text-2xl font-serif text-deep-taupe mb-12 leading-relaxed">
+                Un espacio honesto para darle lugar a lo que sientes, sin prisas. Trabajamos juntos en terapia individual o de pareja, ya sea de forma presencial en el barrio de Gracia o a través de videollamada.
+            </p>
+
+            <!-- Three photos placeholder -->
+            <div class="flex flex-col md:flex-row items-center justify-center gap-6 mb-12">
+                <!-- Photo 1 -->
+                <div class="w-full md:w-1/4 h-64 bg-nimbus-cloud/50 rounded-lg shadow-md"></div>
+                <!-- Photo 2 (Larger) -->
+                <div class="w-full md:w-1/3 h-80 bg-nimbus-cloud/70 rounded-lg shadow-lg md:transform md:scale-110 z-10"></div>
+                <!-- Photo 3 -->
+                <div class="w-full md:w-1/4 h-64 bg-nimbus-cloud/50 rounded-lg shadow-md"></div>
+            </div>
+
+            <h2 class="text-3xl font-serif text-deep-taupe mb-4">Mi objetivo</h2>
+            <p class="text-lg text-deep-taupe/80">
+                here my objective
+            </p>
+        </div>
+    </section>
+
+    <!-- Separator Section -->
+    <section class="w-full h-64 bg-black flex items-center justify-center">
+        <!-- Placeholder for mosaic image -->
+        <span class="text-white/20">Mosaic Placeholder</span>
     </section>
 
     <!-- Footer -->
     <footer class="bg-cloud-dancer dark:bg-charcoal-plum py-12 border-t border-nimbus-cloud/20 transition-colors duration-500">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
-            <div class="mb-4 md:mb-0">
+            <div class="mb-4 md:mb-0 text-center md:text-left">
                 <span data-i18n="footer.text" class="font-serif text-lg font-semibold">Psicóloga & Sexóloga</span>
-                <p data-i18n="footer.rights" class="text-sm opacity-60 mt-1">&copy; 2023 Todos los derechos reservados.</p>
+                <p data-i18n="footer.rights" class="text-sm opacity-60 mt-1">&copy; 2025 Todos los derechos reservados.</p>
             </div>
-            <div class="flex space-x-6">
-                <!-- Social Icons Placeholders -->
-                <a href="#" class="opacity-60 hover:opacity-100 transition-opacity">Instagram</a>
-                <a href="https://www.linkedin.com/in/jballesterospsicologia" target="_blank" rel="noopener noreferrer" class="opacity-60 hover:opacity-100 transition-opacity">LinkedIn</a>
+            <div class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
+                <!-- Address -->
+                <div class="flex items-center space-x-2 opacity-60 hover:opacity-100 transition-opacity text-sm md:text-base">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg>
+                    <span>Carrer Gran de Gràcia, 08012 Barcelona</span>
+                </div>
+                <!-- Social Icons -->
+                <a href="https://www.linkedin.com/in/jballesterospsicologia" target="_blank" rel="noopener noreferrer" class="opacity-60 hover:opacity-100 transition-opacity" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 fill-current" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+                </a>
             </div>
         </div>
     </footer>
