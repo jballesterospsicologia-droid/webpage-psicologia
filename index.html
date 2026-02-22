@@ -239,7 +239,7 @@
     </section>
 
     <!-- Separator Section -->
-    <section class="w-full h-[32rem] bg-[url('mosaico1.png')] bg-repeat">
+    <section id="mosaic-section" class="w-full h-[32rem] bg-[url('mosaico1.png')] bg-repeat" style="background-size: 232px 231px; opacity: 0.4;">
     </section>
 
     <!-- Footer -->
@@ -354,5 +354,52 @@
     <!-- Language Scripts -->
     <script src="js/translations.js"></script>
     <script src="js/language-toggle.js"></script>
+
+    <script>
+        // Mosaic Scrolling Opacity Effect
+        function updateMosaicOpacity() {
+            const mosaicSection = document.getElementById('mosaic-section');
+            if (!mosaicSection) return;
+
+            const rect = mosaicSection.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+
+            // Start showing when the top of the section enters the viewport
+            // We want to map opacity from 0.4 (start) to 0.8 (bottom of page)
+
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight;
+            const maxScroll = docHeight - windowHeight;
+            const sectionOffsetTop = mosaicSection.offsetTop;
+
+            // Calculate start scroll position (when top of section just enters viewport)
+            const startScroll = Math.max(0, sectionOffsetTop - windowHeight);
+
+            // Calculate end scroll position (bottom of page)
+            const endScroll = maxScroll;
+
+            if (endScroll <= startScroll) {
+                mosaicSection.style.opacity = 0.8;
+                return;
+            }
+
+            // Calculate progress
+            let progress = (scrollTop - startScroll) / (endScroll - startScroll);
+            progress = Math.max(0, Math.min(1, progress));
+
+            // Interpolate opacity: 0.4 + (progress * 0.4) -> 0.4 to 0.8
+            const opacity = 0.4 + (progress * 0.4);
+            mosaicSection.style.opacity = opacity.toFixed(2);
+        }
+
+        window.addEventListener('scroll', updateMosaicOpacity);
+        window.addEventListener('resize', updateMosaicOpacity);
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', updateMosaicOpacity);
+        } else {
+            updateMosaicOpacity();
+        }
+    </script>
 </body>
 </html>
